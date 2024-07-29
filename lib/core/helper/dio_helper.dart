@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:project/core/helper/cache_helper.dart';
 
 class DioHelper {
   static String url = 'https://ink-notes-app.onrender.com/api/v1';
   Dio dio = Dio(
-    BaseOptions(
-      baseUrl: url,
-    ),
+    BaseOptions(baseUrl: url, headers: {
+      "Authorization": "Bearer ${CacheHelper.getData(key: "token")}",
+    }),
   );
 
   Future<Response> post(String path, Map<String, dynamic> data) async {

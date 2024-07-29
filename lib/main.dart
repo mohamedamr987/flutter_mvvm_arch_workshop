@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:project/core/helper/cache_helper.dart';
 
 import 'register/register_view.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() {
+  CacheHelper.init();
   runApp(const MyApp());
 }
 
